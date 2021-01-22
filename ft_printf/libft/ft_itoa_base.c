@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: CWatcher <cwatcher@student.21-school.r>    +#+  +:+       +#+        */
+/*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 13:40:07 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/19 08:49:24 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/01/21 13:30:54 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ char	*ft_itoa_base(int num, unsigned char b)
 	unsigned	n;
 	size_t		l;
 	char		*s;
-	char	digits[] = "0123456789ABCDEF";
- 
+	const char	digits[] = "0123456789ABCDEF";
+
 	if (b < 2 || b > sizeof(digits))
 		return (NULL);
 	n = num > 0 ? num : -num;
-	l = 1 + (n < 0);
+	l = 1 + (num < 0);
 	while (n /= b)
 		l++;
 	if (!(s = malloc((l + 1) * sizeof(char))))
@@ -30,11 +30,12 @@ char	*ft_itoa_base(int num, unsigned char b)
 	s[l] = '\0';
 	if (num < 0)
 		s[0] = '-';
-	else if (n == 0)
+	else if (num == 0)
 		s[0] = '0';
+	n = num > 0 ? num : -num;
 	while (n)
 	{
-		s[--l] = digits[n % b - 1];
+		s[--l] = digits[n % b];
 		n /= b;
 	}
 	return (s);
