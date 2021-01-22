@@ -4,16 +4,23 @@
 
 int	ft_printf(const char *s, ...)
 {
-	int		n;
 	va_list	ap;
+	ssize_t	n;
 
 	n = 0;
 	va_start(ap, s);
-	--s;
-	while (*++s && *s != '%')
-		n += write(STDOUT_FILENO, s, 1);
-	if (*s == '%' && *++s == 's')
-		ft_putstr_fd(va_arg(ap, char *), STDOUT_FILENO);
+	while (*s)
+	{
+		if (*s == '%')
+		{
+			s++;
+			if (*s == 's')
+				n += ft_putstr(va_arg(ap, char *));
+			s++;
+		}
+		else
+			n += write(1, s++, 1);
+	}
 	va_end(ap);
 	return (n);
 }
