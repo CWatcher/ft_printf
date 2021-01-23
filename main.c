@@ -1,4 +1,4 @@
-#include "ft_printf/ft_printf.c"
+#include "ft_printf.h"
 
 int	 main(int ac, char *av[]) {
 	for (int i = 0; i < ac; i++) {

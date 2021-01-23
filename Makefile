@@ -1,2 +1,8 @@
-all:
-	cc -Ift_printf/libft -o aa main.c ft_printf/libft/*.c
+PROJ	= ft_printf
+LIBA	= $(PROJ)/libftprintf.a
+
+all: $(LIBA)
+	cc -I$(PROJ) -L$(PROJ) -l ftprintf -o aa main.c
+
+$(LIBA):
+	make -C $(PROJ)
