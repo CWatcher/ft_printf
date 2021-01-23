@@ -1,8 +1,7 @@
 PROJ	= ft_printf
 LIBA	= $(PROJ)/libftprintf.a
+DEFS	= NO_LIBC
 
-all: $(LIBA)
-	cc -I$(PROJ) -L$(PROJ) -l ftprintf -o aa main.c
-
-$(LIBA):
+all:
 	make -C $(PROJ)
+	cc -I$(PROJ) -L$(PROJ) -l ftprintf -D $(DEFS) -o aa main.c

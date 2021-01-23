@@ -1,11 +1,15 @@
-#include "ft_printf.h"
+#ifdef LIBC
+# include <stdio.h>
+#else
+# include "ft_printf.h"
+#endif
 
 int	 main(int ac, char *av[]) {
-	for (int i = 0; i < ac; i++) {
-		if (i < ac - 1)
-			ft_printf(av[i], av[i + 1]);
-		else
-			ft_printf(av[i]);
-		ft_printf("\n");
-	}
+	int (*print)(const char *, ...);
+	#ifdef LIBC
+		print = printf;
+	#else
+		print = ft_printf;
+	#endif
+	print("ab%s%s%si\n", "cde", "fg", "h");
 }
