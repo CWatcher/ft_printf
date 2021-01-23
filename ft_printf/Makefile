@@ -15,7 +15,7 @@ all		: $(NAME)
 $(LIBA)	:
 	make -C $(LIBD)
 
-$(NAME)	: $(OBJ) $(LIBA)
+$(NAME)	: $(OBJ) $(LIBA) Makefile
 	cp $(LIBA) $@
 	ar rcs $@ $(OBJ)
 
@@ -28,4 +28,4 @@ fclean	: clean
 re		: fclean all
 
 .PHONY	: all clean fclean re
- 
+
