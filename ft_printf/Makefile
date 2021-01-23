@@ -20,9 +20,11 @@ $(NAME)	: $(OBJ) $(LIBA) Makefile
 	ar rcs $@ $(OBJ)
 
 clean	:
+	make -C $(LIBD) clean
 	$(RM) $(OBJ)
 
 fclean	: clean
+	$(RM) $(LIBA)
 	$(RM) $(NAME)
 
 re		: fclean all
