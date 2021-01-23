@@ -5,7 +5,7 @@ NAME	= aa
 
 $(NAME)	:
 	make -C $(PROJ)
-	cc -I$(PROJ) -L$(PROJ) -l ftprintf -D $(DEFS) -o aa main.c
+	cc -I$(PROJ) -L$(PROJ) -D $(DEFS) -o aa main.c -lftprintf 
 
 all		: $(NAME) 
 
