@@ -1,6 +1,6 @@
 PROJ	= ft_printf
 LIBA	= $(PROJ)/libftprintf.a
-DEFS	= NO_LIBC
+DEFS	= LIBFT
 NAME	= aa
 
 $(NAME)	:
