@@ -6,7 +6,7 @@
 /*   By: CWatcher <cwatcher@student.21-school.r>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 11:45:31 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/24 14:05:29 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/01/25 10:57:13 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ssize_t	ft_putcn(char c, ssize_t n)
 	l = 0;
 	while (n-- > 0)
 	{
-		w = write(fd, &c, sizeof(c));
+		w = write(1, &c, sizeof(c));
 		if (w < 0)
 		{
 			l = w;

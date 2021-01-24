@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: CWatcher <cwatcher@student.21-school.r>    +#+  +:+       +#+        */
+/*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 11:45:31 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/24 12:12:54 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/01/24 20:20:39 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 ssize_t	ft_putc(char c)
 {
-	return write(fd, &c, sizeof(c));
+	return write(1, &c, sizeof(c));
 }

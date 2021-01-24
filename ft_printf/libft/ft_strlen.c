@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: CWatcher <cwatcher@student.21-school.r>    +#+  +:+       +#+        */
+/*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 14:47:45 by cwatcher          #+#    #+#             */
-/*   Updated: 2021/01/24 14:19:35 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/01/24 20:19:52 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <sys/types.h>
+
 
 ssize_t	ft_strlen(const char *s)
 {

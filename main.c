@@ -14,4 +14,5 @@ int	 main(int ac, char *av[]) {
 		print("================LibFT===============\n");
 	#endif
 	print("ab%s%s%si\n", "cde", "fg", "h");
+	print("1234\n%4s", "de");
 }
