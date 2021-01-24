@@ -1,23 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: CWatcher <cwatcher@student.21-school.r>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/03 14:47:45 by cwatcher          #+#    #+#             */
-/*   Updated: 2021/01/24 14:19:35 by CWatcher         ###   ########.fr       */
+/*   Created: 2020/11/11 11:11:56 by CWatcher          #+#    #+#             */
+/*   Updated: 2020/11/12 11:44:35 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-ssize_t	ft_strlen(const char *s)
+int	ft_isdigit(int c)
 {
-	ssize_t n;
-
-	n = 0;
-	while (s && s[n])
-		++n;
-	return (n);
+	return ((unsigned)c - 0x30 < 10);
 }

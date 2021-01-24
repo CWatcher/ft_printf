@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: CWatcher <cwatcher@student.21-school.r>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/03 14:47:45 by cwatcher          #+#    #+#             */
-/*   Updated: 2021/01/24 14:19:35 by CWatcher         ###   ########.fr       */
+/*   Created: 2020/11/14 11:45:31 by CWatcher          #+#    #+#             */
+/*   Updated: 2021/01/24 12:12:54 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <unistd.h>
 
-ssize_t	ft_strlen(const char *s)
+ssize_t	ft_putc(char c)
 {
-	ssize_t n;
-
-	n = 0;
-	while (s && s[n])
-		++n;
-	return (n);
+	return write(fd, &c, sizeof(c));
 }

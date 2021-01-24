@@ -6,7 +6,7 @@
 /*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 12:32:57 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/22 23:17:55 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/01/24 14:20:55 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void			*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
-size_t			ft_strlen(const char *s);
+ssize_t			ft_strlen(const char *s);
 size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);
 char			*ft_strdup(const char *s);
@@ -55,6 +55,8 @@ char			**ft_split(char const *s, char c);
 char			*ft_itoa(int n);
 char			*ft_ulltoa_base(unsigned long long int num, unsigned char b);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+ssize_t			ft_putc(char c);
+ssize_t			ft_putcn(char c, ssize_t n);
 void			ft_putchar_fd(char c, int fd);
 ssize_t			ft_putstr(char *s);
 void			ft_putstr_fd(char *s, int fd);
