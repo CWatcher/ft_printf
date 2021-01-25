@@ -6,13 +6,13 @@
 /*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 11:45:31 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/24 20:20:39 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/01/25 20:24:04 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-ssize_t	ft_putc(char c)
+ssize_t	ft_putc(int c)
 {
 	return write(1, &c, sizeof(c));
 }
