@@ -10,5 +10,5 @@ typedef struct	s_fmt
 	ssize_t	prec;
 	bool	left;
 	char	padd;
-}				t_fmt;
+}				t_frmt;
 
