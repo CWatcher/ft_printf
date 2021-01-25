@@ -12,7 +12,9 @@ all		: $(NAME)
 %.o		: %.c ft_printf.h $(LIBH)
 	$(CC) -I$(LIBD) -c $<
 
-$(LIBA)	:
+$(LIBA)	: force
+
+force	:
 	make -C $(LIBD)
 
 $(NAME)	: $(OBJ) $(LIBA) Makefile

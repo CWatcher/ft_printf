@@ -1,11 +1,16 @@
+SRC		= main.c
 PROJ	= ft_printf
 LIBA	= $(PROJ)/libftprintf.a
 DEF		= LIBFT
 NAME	= aa
 
-$(NAME)	:
-	make -C $(PROJ)
+$(NAME)	: $(SRC) $(LIBA)
 	cc -I$(PROJ) -L$(PROJ) -D $(DEF) -o aa main.c -lftprintf
+
+$(LIBA)	: force
+
+force	:
+	make -C $(PROJ)
 
 all		: $(NAME)
 
