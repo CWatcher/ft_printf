@@ -13,6 +13,7 @@ clean	:
 	make -C $(PROJ) clean
 
 fclean	: clean
+	make -C $(PROJ) clean
 	$(RM) $(LIBA)
 	$(RM) $(NAME)
 

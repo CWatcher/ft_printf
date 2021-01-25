@@ -24,6 +24,7 @@ clean	:
 	$(RM) $(OBJ)
 
 fclean	: clean
+	make -C $(LIBD) clean
 	$(RM) $(LIBA)
 	$(RM) $(NAME)
 
