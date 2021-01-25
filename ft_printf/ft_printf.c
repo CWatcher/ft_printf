@@ -18,7 +18,7 @@ int	ft_printf(const char *s, ...)
 {
 	va_list	ap;
 	ssize_t	n;
-	size_t *pn;
+	ssize_t *pn;
 	t_fmt	fmt;
 
 	n = 0;
