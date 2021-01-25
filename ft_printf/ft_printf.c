@@ -3,55 +3,111 @@
 #include "libft.h"
 #include "ft_printf.h"
 
-t_fmt	fmt0;
+t_frmt	g_fmt0;
 
-void	init_fmt(t_fmt *fmt)
+void	ini_frmt(t_frmt *frmt)
 {
-//	fmt->wdth = 0;
-//	fmt->prec = 0;
-	*fmt = fmt0;
-	fmt->padd = ' ';
+	*frmt = g_fmt0;
+//	frmt->wdth = 0;
+	frmt->prec = -1;
+	frmt->padd = ' ';
 }
 
+static	void set_flgs(t_frmt *frmt, char const **ps)
+{
+	while(**ps)
+	{
+		if (**ps == '-' && frmt->padd != '0')
+			frmt->left = true;
+		else if (**ps == '0')
+		{
+			frmt->padd = '0';
+			frmt->left = false;
+		}
+		else
+			return;
+		(*ps)++;
+	}
+}
+
+static void set_wdth(t_frmt *frmt, char const **ps, va_list ap)
+{
+	int	n;
+
+	if (**ps == '*')
+	{
+		n = va_arg(ap, int);
+		if (n < 0)
+		{
+			frmt->left = true;
+			frmt->wdth = -n;
+		}
+		else
+		 	frmt->wdth = n;
+		++*ps;
+	}
+	else while(ft_isdigit(**ps))
+	{
+		frmt->wdth = frmt->wdth * 10 + (**ps - '0');
+		++*ps;
+	}
+}
+
+static void set_prec(t_frmt *frmt, char const **ps, va_list ap)
+{
+	if(**ps != '.')
+		return;
+	++*ps;
+	if (**ps == '*')
+	{
+		frmt->prec = va_arg(ap, int);
+		++*ps;
+	}
+	else while(ft_isdigit(**ps))
+	{
+		frmt->wdth = frmt->wdth * 10 + (**ps - '0');
+		++*ps;
+	}
+}
+
+static void	set_frmt(t_frmt	*pfrmt, char const **ps, va_list ap)
+{
+	ini_frmt(pfrmt);
+	set_flgs(pfrmt, ps);
+	set_wdth(pfrmt, ps, ap);
+	set_prec(pfrmt, ps, ap);
+}
+
+static ssize_t	prn_frmt(char const **ps, va_list ap)
+{
+	t_frmt	frmt;
+	ssize_t	n;
+
+	n = 0;
+	set_frmt(&frmt, ps, ap);
+	if (**ps == 's')
+	{
+		char *s = va_arg(ap, char *);
+		n += ft_putcn(frmt.padd, frmt.wdth - ft_strlen(s));
+		n += ft_puts(s);
+	}
+	else if (**ps == 'c')
+		n += ft_putc(va_arg(ap, int));
+	++*ps;
+	return (n);
+}
 
 int	ft_printf(const char *s, ...)
 {
 	va_list	ap;
 	ssize_t	n;
-	ssize_t *pn;
-	t_fmt	fmt;
 
 	n = 0;
-	init_fmt (&fmt);
-	pn = &fmt.wdth;
 	va_start(ap, s);
 	while (*s)
 	{
 		if (*s == '%')
-		{
-			s++;
-			if (*s == '-')
-				fmt.left = true;
-			else if (ft_isdigit(*s))
-			{
-				if (*s == '0' && !*pn)
-					fmt.padd = '0';
-				*pn = *pn * 10 + (*s - '0');
-			}
-			else if (*s == '*')
-			{	
-				fmt.left = va_arg(ap, int) < 0;
-				*pn = va_arg(ap, int) < 0 ? -va_arg(ap, int) : va_arg(ap, int);
-			}
-			else if (*s == 's')
-			{	
-				ft_putcn(fmt.padd, fmt.wdth - ft_strlen(va_arg(ap, char *)));
-				n += ft_putstr(va_arg(ap, char *));
-			}
-			else if (*s == 'c')
-				n += ft_putc(*s);
-			s++;
-		}
+			n += prn_frmt(&s, ap);
 		else
 			n += write(1, s++, 1);
 	}
