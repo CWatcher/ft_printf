@@ -5,14 +5,15 @@
 #endif
 
 int	 main(int ac, char *av[]) {
-	int (*print)(const char *, ...);
+	int (*pr)(const char *, ...);
 	#ifdef LIBC
-		print = printf;
-		print("================LibC================\n");
+		pr = printf;
+		pr("================LibC================\n");
 	#else
-		print = ft_printf;
-		print("================LibFT===============\n");
+		pr = ft_printf;
+		pr("================LibFT===============\n");
 	#endif
-	print("ab%s%s%si\n", "cde", "fg", "h");
-	print("1234\n%4s", "de");
+	pr("ab%s%s%si\n", "cde", "fg", "h");
+	pr("1234\n%4s", "de");
+	pr("\n");
 }
