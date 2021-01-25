@@ -1,0 +1,3 @@
+Return error on write() < 0? - Moulinette does not check
+Relinking on libft
+How many windows? Ctrl-z? Where man?
