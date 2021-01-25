@@ -1,13 +1,13 @@
 PROJ	= ft_printf
 LIBA	= $(PROJ)/libftprintf.a
-DEFS	= LIBFT
+DEF		= LIBFT
 NAME	= aa
 
 $(NAME)	:
 	make -C $(PROJ)
-	cc -I$(PROJ) -L$(PROJ) -D $(DEFS) -o aa main.c -lftprintf 
+	cc -I$(PROJ) -L$(PROJ) -D $(DEF) -o aa main.c -lftprintf
 
-all		: $(NAME) 
+all		: $(NAME)
 
 clean	:
 	make -C $(PROJ) clean
