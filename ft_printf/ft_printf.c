@@ -78,25 +78,22 @@ static void	set_frmt(t_frmt	*pfrmt, char const **ps, va_list ap)
 	set_prec(pfrmt, ps, ap);
 }
 
-static ssize_t	prn_frmt(char const **ps, va_list ap)
+static ssize_t	prn_frmt(char const **ps, va_list *pap)
 {
 	t_frmt	frmt;
 	ssize_t	n;
 
-	if (**ps != '%')
-		return (0);
-	++*ps;
-	set_frmt(&frmt, ps, ap);
+//	set_frmt(&frmt, ps, ap);
 	n = 0;
 	if (**ps == 's')
 	{
-		char *s = va_arg(ap, char *);
-		n += ft_putcn(frmt.padd, frmt.wdth - ft_strlen(s));
+		char *s = va_arg(*pap, char *);
+//		n += ft_putcn(frmt.padd, frmt.wdth - ft_strlen(s));
 		n += ft_puts(s);
 	}
 	else if (**ps == 'c')
-		n += ft_putc(va_arg(ap, int));
-	++*ps;
+		n += ft_putc(va_arg(*pap, int));
+	//++*ps;
 	return (n);
 }
 
@@ -109,8 +106,11 @@ int	ft_printf(const char *s, ...)
 	va_start(ap, s);
 	while (*s)
 	{
-		n += prn_frmt(&s, ap);
-		n += write(1, s++, 1);
+		if (*s == '%' && ++s)
+			n += prn_frmt(&s, &ap);
+		else
+			n += write(1, s, 1);
+		++s;
 	}
 	va_end(ap);
 	return (n);
