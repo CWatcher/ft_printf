@@ -13,7 +13,11 @@ int	 main(int ac, char *av[]) {
 		pr = ft_printf;
 		pr("================LibFT===============\n");
 	#endif
-	pr("ab%s%s%si\n", "cde", "fg", "h");
+	pr("Percent:\n%%%%%%\n");
+	pr("Char:\n%c%c%c\n", 'A', 'B', 'C');
+	pr("123\n%3s", 'c');
+	pr("String:\nab%s%s%si\n", "cde", "fg", "h");
 	pr("1234\n%4s", "de");
+
 	pr("\n");
 }
