@@ -12,12 +12,12 @@ all		: $(NAME)
 %.o		: %.c ft_printf.h $(LIBH)
 	$(CC) -I$(LIBD) -c $<
 
-$(LIBA)	: force
+liba	: force
 
 force	:
 	make -C $(LIBD)
 
-$(NAME)	: $(OBJ) $(LIBA) Makefile
+$(NAME)	: $(OBJ) liba Makefile
 	cp $(LIBA) $@
 	ar rcs $@ $(OBJ)
 
