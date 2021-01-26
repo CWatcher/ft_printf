@@ -67,7 +67,7 @@ static void set_prec(t_frmt *frmt, char const **ps, va_list *pap)
 	else
 		while(ft_isdigit(**ps))
 		{
-			frmt->wdth = frmt->wdth * 10 + (**ps - '0');
+			frmt->prec = frmt->prec * 10 + (**ps - '0');
 			++*ps;
 		}
 }

@@ -20,6 +20,9 @@ int	 main(int ac, char *av[]) {
 	pr("123\n%*c\n", 3, 'c');
 	pr("String:\nab%s%s%si\n", "cde", "fg", "h");
 	pr("%6s\n%*s\n", "1234", 6, "de");
+	pr("12\n%.2s\n", "defg");
+	pr("%.*s\n", 2, "defg");
+
 
 	pr("\n");
 }

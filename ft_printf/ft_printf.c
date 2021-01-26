@@ -25,7 +25,7 @@ static ssize_t	prn_frmt(char const **ps, va_list *pap)
 		char *s = va_arg(*pap, char *);
 		if (!frmt.left)
 			n += ft_putcn(frmt.padd, frmt.wdth - ft_strlen(s));
-		n += ft_puts(s);
+		n += ft_putsn(s, frmt.prec);
 		if (frmt.left)
 			n += ft_putcn(frmt.padd, frmt.wdth - ft_strlen(s));
 	}
