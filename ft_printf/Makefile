@@ -1,4 +1,5 @@
-SRC		= ft_printf.c
+SRC		= ft_printf.c	\
+		  set_frmt.c
 OBJ		= $(SRC:.c=.o)
 LIB		= ft
 LIBD	= lib$(LIB)
