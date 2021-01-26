@@ -11,3 +11,5 @@ cmake-build-debug
 aa
 tst*
 */.gitignore
+ft.txt
+libc.txt
