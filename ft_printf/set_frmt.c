@@ -45,28 +45,31 @@ static void set_wdth(t_frmt *frmt, char const **ps, va_list *pap)
 		 	frmt->wdth = n;
 		++*ps;
 	}
-	else while(ft_isdigit(**ps))
-	{
-		frmt->wdth = frmt->wdth * 10 + (**ps - '0');
-		++*ps;
-	}
+	else
+		while (ft_isdigit(**ps))
+		{
+			frmt->wdth = frmt->wdth * 10 + (**ps - '0');
+			++*ps;
+		}
 }
 
 static void set_prec(t_frmt *frmt, char const **ps, va_list *pap)
 {
 	if(**ps != '.')
 		return;
+	frmt->prec = 0;
 	++*ps;
 	if (**ps == '*')
 	{
 		frmt->prec = va_arg(*pap, int);
 		++*ps;
 	}
-	else while(ft_isdigit(**ps))
-	{
-		frmt->wdth = frmt->wdth * 10 + (**ps - '0');
-		++*ps;
-	}
+	else
+		while(ft_isdigit(**ps))
+		{
+			frmt->wdth = frmt->wdth * 10 + (**ps - '0');
+			++*ps;
+		}
 }
 
 void	set_frmt(t_frmt	*pfrmt, char const **ps, va_list *pap)
