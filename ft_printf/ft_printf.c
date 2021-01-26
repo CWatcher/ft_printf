@@ -83,8 +83,11 @@ static ssize_t	prn_frmt(char const **ps, va_list ap)
 	t_frmt	frmt;
 	ssize_t	n;
 
-	n = 0;
+	if (**ps != '%')
+		return (0);
+	++*ps;
 	set_frmt(&frmt, ps, ap);
+	n = 0;
 	if (**ps == 's')
 	{
 		char *s = va_arg(ap, char *);
@@ -106,10 +109,8 @@ int	ft_printf(const char *s, ...)
 	va_start(ap, s);
 	while (*s)
 	{
-		if (*s == '%')
-			n += prn_frmt(&s, ap);
-		else
-			n += write(1, s++, 1);
+		n += prn_frmt(&s, ap);
+		n += write(1, s++, 1);
 	}
 	va_end(ap);
 	return (n);
