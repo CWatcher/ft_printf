@@ -23,11 +23,13 @@ static ssize_t	prn_frmt(char const **ps, va_list *pap)
 	else if (**ps == 's')
 	{
 		char *s = va_arg(*pap, char *);
+		if (frmt.prec < 0)
+			frmt.prec = ft_strlen(s);
 		if (!frmt.left)
-			n += ft_putcn(frmt.padd, frmt.wdth - ft_strlen(s));
+			n += ft_putcn(frmt.padd, frmt.wdth - (ft_strlen(s) - frmt.prec));
 		n += ft_putsn(s, frmt.prec);
 		if (frmt.left)
-			n += ft_putcn(frmt.padd, frmt.wdth - ft_strlen(s));
+			n += ft_putcn(frmt.padd, frmt.wdth - (ft_strlen(s) - frmt.prec));
 	}
 	else if (ft_strchr("di", **ps))
 		n += print_d(&frmt, va_arg(*pap, int));
