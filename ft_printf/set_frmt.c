@@ -16,13 +16,13 @@ static	void set_flgs(t_frmt *frmt, char const **ps)
 {
 	while(**ps)
 	{
-		if (**ps == '-' && frmt->padd != '0')
-			frmt->left = true;
-		else if (**ps == '0')
+		if (**ps == '-')
 		{
-			frmt->padd = '0';
-			frmt->left = false;
+			frmt->left = true;
+			frmt->padd = ' ';
 		}
+		else if (**ps == '0' && !frmt->left)
+			frmt->padd = '0';
 		else
 			return;
 		(*ps)++;

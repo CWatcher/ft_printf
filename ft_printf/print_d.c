@@ -22,9 +22,12 @@ ssize_t	print_d(t_frmt *pfrmt, long long num)
 		pfrmt->padd = ' ';
 	else
 		pfrmt->prec = 1;
+	if (pfrmt->padd == '0')
+		n += ft_puts(pfrmt->sign);
 	if (!pfrmt->left)
-		n += ft_putcn(' ', pfrmt->wdth - (ft_strlen(pfrmt->sign) + max(l, pfrmt->prec)));
-	n += ft_puts(pfrmt->sign);
+		n += ft_putcn(pfrmt->padd, pfrmt->wdth - (ft_strlen(pfrmt->sign) + max(l, pfrmt->prec)));
+	if (pfrmt->padd != '0')
+		n += ft_puts(pfrmt->sign);
 	n += ft_putcn('0', pfrmt->prec - l);
 	n += ft_puts(s);
 	if (pfrmt->left)
