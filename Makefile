@@ -4,10 +4,10 @@ LIBA	= $(PROJ)/libftprintf.a
 DEF		= LIBFT
 NAME	= aa
 
-$(NAME)	: $(SRC) $(LIBA)
-	cc -I$(PROJ) -L$(PROJ) -D $(DEF) -o aa main.c -lftprintf
+$(NAME)	: $(SRC) liba
+	cc -Wall -Wextra -Werror -I$(PROJ) -L$(PROJ) -D $(DEF) -o aa main.c -lftprintf
 
-$(LIBA)	: force
+liba	: force
 
 force	:
 	make -C $(PROJ)
@@ -24,4 +24,4 @@ fclean	: clean
 
 re		: fclean all
 
-.PHONY	: all clean fclean re
+.PHONY	: all clean fclean re liba

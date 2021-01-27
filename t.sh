@@ -1,7 +1,6 @@
-make re
+make
 ./aa > ft.txt
 make re DEF=LIBC
 ./aa > libc.txt
-make fclean
 diff ft.txt libc.txt
 #rm ft.txt libc.txt
