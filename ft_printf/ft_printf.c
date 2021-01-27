@@ -29,6 +29,8 @@ static ssize_t	prn_frmt(char const **ps, va_list *pap)
 		if (frmt.left)
 			n += ft_putcn(frmt.padd, frmt.wdth - ft_strlen(s));
 	}
+	else if (ft_strchr("di", **ps))
+		n += print_d(&frmt, va_arg(*pap, int));
 	++*ps;
 	return (n);
 }

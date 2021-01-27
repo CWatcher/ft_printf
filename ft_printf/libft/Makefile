@@ -6,7 +6,7 @@
 #    By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/15 16:37:00 by CWatcher          #+#    #+#              #
-#    Updated: 2021/01/26 19:39:04 by CWatcher         ###   ########.fr        #
+#    Updated: 2021/01/26 22:30:59 by CWatcher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,9 @@ SRC		=	ft_memset.c 	\
 			ft_putc.c   	\
 			ft_putcn.c   	\
 			ft_puts.c		\
-			ft_putsn.c
+			ft_putsn.c		\
+			ft_strchr.c		\
+			ft_ulltoa_base.c
 OBJ		= $(SRC:.c=.o)
 OBJ_B	= $(SRC_B:.c=.o)
 NAME	= libft.a

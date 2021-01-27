@@ -6,14 +6,14 @@
 /*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 12:32:57 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/26 19:39:53 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/01/27 12:46:36 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stddef.h>
+# include <stdlib.h>
 
 typedef	struct	s_list
 {
@@ -58,8 +58,8 @@ char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 ssize_t			ft_putc(int c);
 ssize_t			ft_putcn(char c, ssize_t n);
 void			ft_putchar_fd(char c, int fd);
-ssize_t			ft_puts(char *s);
-ssize_t			ft_putsn(char *s, ssize_t n);
+ssize_t			ft_puts(const char *s);
+ssize_t			ft_putsn(const char *s, ssize_t n);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
