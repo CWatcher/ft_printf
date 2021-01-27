@@ -22,9 +22,11 @@ static ssize_t	prn_frmt(char const **ps, va_list *pap)
 	}
 	else if (**ps == 's')
 	{
-		char *s = va_arg(*pap, char *);
-		if (frmt.prec < 0)
-			frmt.prec = ft_strlen(s);
+		const char *s = va_arg(*pap, char *);
+		const ssize_t l = ft_strlen(s);
+
+		if (frmt.prec < 0 || frmt.prec > l)
+			frmt.prec = l;
 		if (!frmt.left)
 			n += ft_putcn(frmt.padd, frmt.wdth - frmt.prec);
 		n += ft_putsn(s, frmt.prec);
