@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/28 00:00:44 by CWatcher          #+#    #+#             */
+/*   Updated: 2021/01/28 01:04:48 by CWatcher         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include <stdarg.h>
 #include "libft.h"
@@ -10,36 +22,27 @@ static ssize_t	prn_frmt(char const **ps, va_list *pap)
 
 	set_frmt(&frmt, ps, pap);
 	n = 0;
- 	if (**ps == '%')
+	if (**ps == '%')
 		n += ft_putc('%');
 	else if (**ps == 'c')
-	{
-		if (!frmt.left)
-			n += ft_putcn(frmt.padd, frmt.wdth - sizeof(char));
-		n += ft_putc(va_arg(*pap, int));
-		if (frmt.left)
-			n += ft_putcn(frmt.padd, frmt.wdth - sizeof(char));
-	}
+		n += print_c(&frmt, va_arg(*pap, int));
 	else if (**ps == 's')
-	{
-		const char *s = va_arg(*pap, char *);
-		const ssize_t l = ft_strlen(s);
-
-		if (frmt.prec < 0 || frmt.prec > l)
-			frmt.prec = l;
-		if (!frmt.left)
-			n += ft_putcn(frmt.padd, frmt.wdth - frmt.prec);
-		n += ft_putsn(s, frmt.prec);
-		if (frmt.left)
-			n += ft_putcn(frmt.padd, frmt.wdth - frmt.prec);
-	}
+		n += print_s(&frmt, va_arg(*pap, char *));
 	else if (ft_strchr("di", **ps))
+	{
+		if (frmt.prec >= 0)
+			frmt.padd = ' ';
+		else
+			frmt.prec = 1;
 		n += print_d(&frmt, va_arg(*pap, int));
+	}
+	else
+		return (-1);
 	++*ps;
 	return (n);
 }
 
-int	ft_printf(const char *s, ...)
+int				ft_printf(const char *s, ...)
 {
 	va_list	ap;
 	ssize_t	n;
@@ -48,9 +51,10 @@ int	ft_printf(const char *s, ...)
 	va_start(ap, s);
 	while (*s)
 	{
-		if (*s == '%') {
-				++s;
-				n += prn_frmt(&s, &ap);
+		if (*s == '%')
+		{
+			++s;
+			n += prn_frmt(&s, &ap);
 		}
 		else
 			n += ft_putc(*s++);

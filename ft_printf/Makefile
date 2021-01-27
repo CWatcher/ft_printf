@@ -1,5 +1,7 @@
 SRC		= ft_printf.c	\
 		  set_frmt.c	\
+		  print_c.c		\
+		  print_s.c		\
 		  print_d.c
 OBJ		= $(SRC:.c=.o)
 LIB		= ft

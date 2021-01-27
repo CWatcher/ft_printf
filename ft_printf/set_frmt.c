@@ -1,5 +1,5 @@
 #include <stdarg.h>
-#include "ft_printf.h"
+#include "ft_printf_utils.h"
 #include "libft.h"
 
 t_frmt	g_fmt0;
@@ -12,9 +12,9 @@ static void	ini_frmt(t_frmt *frmt)
 	frmt->padd = ' ';
 }
 
-static	void set_flgs(t_frmt *frmt, char const **ps)
+static void	set_flgs(t_frmt *frmt, char const **ps)
 {
-	while(**ps)
+	while (**ps)
 	{
 		if (**ps == '-')
 		{
@@ -24,12 +24,12 @@ static	void set_flgs(t_frmt *frmt, char const **ps)
 		else if (**ps == '0' && !frmt->left)
 			frmt->padd = '0';
 		else
-			return;
+			return ;
 		(*ps)++;
 	}
 }
 
-static void set_wdth(t_frmt *frmt, char const **ps, va_list *pap)
+static void	set_wdth(t_frmt *frmt, char const **ps, va_list *pap)
 {
 	int	n;
 
@@ -42,7 +42,7 @@ static void set_wdth(t_frmt *frmt, char const **ps, va_list *pap)
 			frmt->wdth = -n;
 		}
 		else
-		 	frmt->wdth = n;
+			frmt->wdth = n;
 		++*ps;
 	}
 	else
@@ -53,10 +53,10 @@ static void set_wdth(t_frmt *frmt, char const **ps, va_list *pap)
 		}
 }
 
-static void set_prec(t_frmt *frmt, char const **ps, va_list *pap)
+static void	set_prec(t_frmt *frmt, char const **ps, va_list *pap)
 {
-	if(**ps != '.')
-		return;
+	if (**ps != '.')
+		return ;
 	frmt->prec = 0;
 	++*ps;
 	if (**ps == '*')
@@ -65,14 +65,14 @@ static void set_prec(t_frmt *frmt, char const **ps, va_list *pap)
 		++*ps;
 	}
 	else
-		while(ft_isdigit(**ps))
+		while (ft_isdigit(**ps))
 		{
 			frmt->prec = frmt->prec * 10 + (**ps - '0');
 			++*ps;
 		}
 }
 
-void	set_frmt(t_frmt	*pfrmt, char const **ps, va_list *pap)
+void		set_frmt(t_frmt *pfrmt, char const **ps, va_list *pap)
 {
 	ini_frmt(pfrmt);
 	set_flgs(pfrmt, ps);

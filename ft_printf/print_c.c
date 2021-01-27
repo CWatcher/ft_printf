@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   print_c.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/27 23:22:25 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/28 00:09:33 by CWatcher         ###   ########.fr       */
+/*   Created: 2021/01/28 00:01:26 by CWatcher          #+#    #+#             */
+/*   Updated: 2021/01/28 01:19:23 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include <sys/types.h>
+#include "libft.h"
+#include "ft_printf_utils.h"
 
-int	ft_printf(const char *s, ...);
+ssize_t	print_c(t_frmt *pfrmt, int c)
+{
+	ssize_t	n;
 
-#endif
+	n = 0;
+	if (!pfrmt->left)
+		n += ft_putcn(pfrmt->padd, pfrmt->wdth - sizeof(char));
+	n += ft_putc(c);
+	if (pfrmt->left)
+		n += ft_putcn(pfrmt->padd, pfrmt->wdth - sizeof(char));
+	return (n);
+}
