@@ -6,7 +6,7 @@
 /*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 11:58:44 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/28 17:51:34 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/01/28 19:09:09 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ char	*ft_ulltoa_base(unsigned long long int num, unsigned char b)
 	char				*s;
 	const char			*digits = "0123456789abcdef";
 
-	if (b == 'X')
-		digits = "0123456789ABCDEF";
-	if (ft_strchr("xXp", b))
-		b = 16;
-	if (b < 2 || ft_strlen(digits) < b)
+	digits = b == 'X' ? "0123456789ABCDEF" : digits;
+	b = ft_strchr("xXp", b) ? 16 : b;
+	if (b == 'u')
+		b = 10;
+	else if (b < 2 || ft_strlen(digits) < b)
 		return (NULL);
 	l = 1;
 	n = num;

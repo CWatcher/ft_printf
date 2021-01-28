@@ -6,7 +6,7 @@
 /*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 00:01:50 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/28 18:05:16 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/01/28 18:42:20 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ ssize_t			print_u_base(t_frmt *pfrmt, unsigned long long unum, char base)
 	s = ft_ulltoa_base(unum, base);
 	l = ft_strlen(s);
 	if (pfrmt->padd == '0')
-		n += ft_puts(pfrmt->sign);
-	pfrmt->wdth -= (ft_strlen(pfrmt->sign) + max(l, pfrmt->prec));
+		n += ft_puts(pfrmt->prfx);
+	pfrmt->wdth -= (ft_strlen(pfrmt->prfx) + max(l, pfrmt->prec));
 	if (!pfrmt->left)
 		n += ft_putcn(pfrmt->padd, pfrmt->wdth);
 	if (pfrmt->padd != '0')
-		n += ft_puts(pfrmt->sign);
+		n += ft_puts(pfrmt->prfx);
 	n += ft_putcn('0', pfrmt->prec - l);
 	n += ft_puts(s);
 	if (pfrmt->left)

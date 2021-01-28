@@ -6,7 +6,7 @@
 /*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 00:01:50 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/28 01:57:51 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/01/28 18:41:15 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,15 @@ ssize_t			print_d(t_frmt *pfrmt, long long num)
 	n = 0;
 	s = ft_ulltoa_base(unum, 10);
 	l = ft_strlen(s);
-	pfrmt->sign[0] = (num < 0) * '-';
+	if (num < 0)
+		pfrmt->prfx = "-";
 	if (pfrmt->padd == '0')
-		n += ft_puts(pfrmt->sign);
-	pfrmt->wdth -= (ft_strlen(pfrmt->sign) + max(l, pfrmt->prec));
+		n += ft_puts(pfrmt->prfx);
+	pfrmt->wdth -= (ft_strlen(pfrmt->prfx) + max(l, pfrmt->prec));
 	if (!pfrmt->left)
 		n += ft_putcn(pfrmt->padd, pfrmt->wdth);
 	if (pfrmt->padd != '0')
-		n += ft_puts(pfrmt->sign);
+		n += ft_puts(pfrmt->prfx);
 	n += ft_putcn('0', pfrmt->prec - l);
 	n += ft_puts(s);
 	if (pfrmt->left)

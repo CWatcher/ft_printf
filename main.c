@@ -15,6 +15,10 @@ int	 main(/*int ac, char *av[] */) {
 		pr("================LibFT===============\n");
 	#endif
 	int	r;
+	int a = 12; int i = 18;
+	r = pr("%-0*i", a, i, a, i, a, i, a, i, a, i) ; pr("| %d\n", r);
+//	r = pr("%7", "254"); pr("| %d\n", r);
+//	r = pr("%p", "254"); pr("| %d\n", r);
 	r = pr("%X", 254); pr("| %d\n", r);
 	pr("Percent:\n%%%%%%\n");
 	pr("Char:\n%c%c%c\n", 'A', 'B', 'C');

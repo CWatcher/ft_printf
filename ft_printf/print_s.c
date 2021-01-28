@@ -6,7 +6,7 @@
 /*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 00:01:35 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/28 00:53:55 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/01/28 20:34:14 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@
 
 ssize_t	print_s(t_frmt *pfrmt, char *s)
 {
-	ssize_t			n;
-	const ssize_t	l = ft_strlen(s);
+	ssize_t	n;
+	ssize_t	l;
 
+	if (!s)
+		s = "(null)";
+	l = ft_strlen(s);
 	n = 0;
 	if (pfrmt->prec < 0 || pfrmt->prec > l)
 		pfrmt->prec = l;

@@ -6,7 +6,7 @@
 /*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 23:26:13 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/28 01:06:28 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/01/28 18:44:34 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ typedef struct	s_fmt
 	ssize_t	prec;
 	bool	left;
 	char	padd;
-	char	sign[2];
+	char	*prfx;
 }				t_frmt;
 
 void			set_frmt(t_frmt	*pfrmt, char const **ps, va_list *pap);
-void			set_frmt_integer(t_frmt *pfrmt);
+void			set_frmt_integer(t_frmt *pfrmt, char c);
 ssize_t			print_c(t_frmt *pfrmt, int c);
 ssize_t			print_s(t_frmt *pfrmt, char *s);
 ssize_t			print_d(t_frmt *pfrmt, long long num);
