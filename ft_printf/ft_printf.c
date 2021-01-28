@@ -6,7 +6,7 @@
 /*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 00:00:44 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/28 01:04:48 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/01/28 15:24:37 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,19 @@ static ssize_t	prn_frmt(char const **ps, va_list *pap)
 	ssize_t	n;
 
 	set_frmt(&frmt, ps, pap);
-	n = 0;
 	if (**ps == '%')
-		n += ft_putc('%');
+		n = ft_putc('%');
 	else if (**ps == 'c')
-		n += print_c(&frmt, va_arg(*pap, int));
+		n = print_c(&frmt, va_arg(*pap, int));
 	else if (**ps == 's')
-		n += print_s(&frmt, va_arg(*pap, char *));
+		n = print_s(&frmt, va_arg(*pap, char *));
 	else if (ft_strchr("di", **ps))
 	{
 		if (frmt.prec >= 0)
 			frmt.padd = ' ';
 		else
 			frmt.prec = 1;
-		n += print_d(&frmt, va_arg(*pap, int));
+		n = print_d(&frmt, va_arg(*pap, int));
 	}
 	else
 		return (-1);
