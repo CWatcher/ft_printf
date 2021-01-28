@@ -15,6 +15,7 @@ int	 main(/*int ac, char *av[] */) {
 		pr("================LibFT===============\n");
 	#endif
 	int	r;
+	r = pr("%X", 254); pr("| %d\n", r);
 	pr("Percent:\n%%%%%%\n");
 	pr("Char:\n%c%c%c\n", 'A', 'B', 'C');
 	pr("123\n%3c\n", 'c');
@@ -24,8 +25,8 @@ int	 main(/*int ac, char *av[] */) {
 	pr("12\n%.2s\n", "defg");
 	pr("%.*s\n", 2, "defg");
 	pr("1234\n%4.2s\n", "defg");
-	r = pr("Decimal:\n%d%d%03d%04d%-03d", 1, 234, 5, -6, -7); pr("| %d", r);
-	r = pr("%s", NULL); pr("| %d", r);
+	r = pr("Decimal:\n%d%d%03d%04d%-03d", 1, 234, 5, -6, -7); pr("| %d\n", r);
+	r = pr("%s", NULL); pr("| %d\n", r);
 
 	pr("\n");
 }

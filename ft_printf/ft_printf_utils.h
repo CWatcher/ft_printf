@@ -26,8 +26,10 @@ typedef struct	s_fmt
 }				t_frmt;
 
 void			set_frmt(t_frmt	*pfrmt, char const **ps, va_list *pap);
+void			set_frmt_integer(t_frmt *pfrmt);
 ssize_t			print_c(t_frmt *pfrmt, int c);
 ssize_t			print_s(t_frmt *pfrmt, char *s);
 ssize_t			print_d(t_frmt *pfrmt, long long num);
+ssize_t			print_u_base(t_frmt *pfrmt, unsigned long long unum, char base);
 
 #endif

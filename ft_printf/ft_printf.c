@@ -6,7 +6,7 @@
 /*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 00:00:44 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/28 15:24:37 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/01/28 16:38:21 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,13 @@ static ssize_t	prn_frmt(char const **ps, va_list *pap)
 		n = print_s(&frmt, va_arg(*pap, char *));
 	else if (ft_strchr("di", **ps))
 	{
-		if (frmt.prec >= 0)
-			frmt.padd = ' ';
-		else
-			frmt.prec = 1;
+		set_frmt_integer(&frmt);
 		n = print_d(&frmt, va_arg(*pap, int));
+	}
+	else if (ft_strchr("uxXp", **ps))
+	{
+		set_frmt_integer(&frmt);
+		n = print_u_base(&frmt, va_arg(*pap, unsigned), **ps);
 	}
 	else
 		return (-1);
