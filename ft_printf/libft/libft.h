@@ -6,15 +6,17 @@
 /*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 12:32:57 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/27 12:46:36 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/01/28 01:17:25 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+/* you will need free() after ft_itoa() etc.
+*/
 # include <stdlib.h>
-
+# include <sys/types.h>
 typedef	struct	s_list
 {
 	void			*content;
@@ -30,6 +32,7 @@ void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 ssize_t			ft_strlen(const char *s);
+ssize_t			ft_strnlen(const char *s, ssize_t n);
 size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t			ft_strlcat(char *dst, const char *src, size_t dstsize);
 char			*ft_strdup(const char *s);

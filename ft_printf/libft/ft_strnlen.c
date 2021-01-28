@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putsn.c                                         :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/26 19:11:54 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/27 11:50:29 by CWatcher         ###   ########.fr       */
+/*   Created: 2020/11/03 14:47:45 by cwatcher          #+#    #+#             */
+/*   Updated: 2021/01/24 20:19:52 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "libft.h"
+#include <sys/types.h>
 
-ssize_t	ft_putsn(const char *s, ssize_t n)
+
+ssize_t	ft_strnlen(const char *s, ssize_t n)
 {
-	const ssize_t	l = ft_strnlen(s, n);
+	ssize_t l;
 
+	l = 0;
 	if (n >= 0)
-		return (write(1, s, n < l ? n : l));
+		while (s && s[l] && l < n)
+			++l;
 	else
-		return (write(1, s, l));
+		while (s && s[l])
+			++l;
+	return (l);
 }

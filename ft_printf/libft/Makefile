@@ -12,6 +12,7 @@
 
 SRC		=	ft_memset.c 	\
 			ft_strlen.c 	\
+			ft_strnlen.c 	\
 			ft_isdigit.c	\
 			ft_putc.c   	\
 			ft_putcn.c   	\
