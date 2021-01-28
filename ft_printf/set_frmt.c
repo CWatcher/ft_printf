@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set_frmt.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/28 18:05:28 by CWatcher          #+#    #+#             */
+/*   Updated: 2021/01/28 18:05:47 by CWatcher         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdarg.h>
 #include "ft_printf_utils.h"
 #include "libft.h"
@@ -7,7 +19,6 @@ t_frmt	g_fmt0;
 static void	ini_frmt(t_frmt *frmt)
 {
 	*frmt = g_fmt0;
-//	frmt->wdth = 0;
 	frmt->prec = -1;
 	frmt->padd = ' ';
 }

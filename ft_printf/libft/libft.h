@@ -6,17 +6,15 @@
 /*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 12:32:57 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/28 01:17:25 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/01/28 18:12:40 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
-/* you will need free() after ft_itoa() etc.
-*/
 # include <stdlib.h>
 # include <sys/types.h>
+
 typedef	struct	s_list
 {
 	void			*content;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putcn.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: CWatcher <cwatcher@student.21-school.r>    +#+  +:+       +#+        */
+/*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 11:45:31 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/25 10:57:13 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/01/28 18:09:29 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ ssize_t	ft_putcn(char c, ssize_t n)
 		if (w < 0)
 		{
 			l = w;
-			break;
+			break ;
 		}
 		else
 			l += w;
