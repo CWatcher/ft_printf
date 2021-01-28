@@ -6,12 +6,11 @@
 #    By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/15 16:37:00 by CWatcher          #+#    #+#              #
-#    Updated: 2021/01/26 22:30:59 by CWatcher         ###   ########.fr        #
+#    Updated: 2021/01/28 18:25:40 by CWatcher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC		=	ft_memset.c 	\
-			ft_strlen.c 	\
+SRC		=	ft_strlen.c 	\
 			ft_strnlen.c 	\
 			ft_isdigit.c	\
 			ft_putc.c   	\
