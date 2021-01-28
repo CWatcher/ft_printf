@@ -6,7 +6,7 @@
 /*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 18:05:28 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/28 18:05:47 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/01/28 20:32:27 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static void	ini_frmt(t_frmt *frmt)
 	*frmt = g_fmt0;
 	frmt->prec = -1;
 	frmt->padd = ' ';
+	frmt->prfx = "";
 }
 
 static void	set_flgs(t_frmt *frmt, char const **ps)
@@ -32,8 +33,11 @@ static void	set_flgs(t_frmt *frmt, char const **ps)
 			frmt->left = true;
 			frmt->padd = ' ';
 		}
-		else if (**ps == '0' && !frmt->left)
-			frmt->padd = '0';
+		else if (**ps == '0')
+		{
+			if (!frmt->left)
+				frmt->padd = '0';
+		}
 		else
 			return ;
 		(*ps)++;
