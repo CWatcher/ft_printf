@@ -13,3 +13,6 @@ tst*
 */.gitignore
 ft.txt
 libc.txt
+ft_printf/pft/
+ft_printf/pft_2019/
+ft_printf/42TESTERS-PRINTF/
