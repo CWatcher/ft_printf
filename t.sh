@@ -1,5 +1,5 @@
 make
-./aa > ft.txt
+./aa > libft.txt
 make re DEF=LIBC
 ./aa > libc.txt
 diff ft.txt libc.txt

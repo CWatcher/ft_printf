@@ -1,9 +1,6 @@
-#ifdef LIBC
 # include <stdio.h>
-#else
 # include "ft_printf.h"
 # include "libft/libft.h"
-#endif
 
 int	 main(/*int ac, char *av[] */) {
 	int (*pr)(const char *, ...);
@@ -16,9 +13,18 @@ int	 main(/*int ac, char *av[] */) {
 	#endif
 	int	r;
 	int a = 12; int i = 18;
+	r = pr("Remove the lib*.txt file and press any key" , 0); pr("| %d\n", r);
+	getchar();
+//	r = pr(NULL , 0); pr("| %d\n", r);
+	r = pr("%p" , 0); pr("| %d\n", r);
+	r = pr("%.p" , 0); pr("| %d\n", r);
+	r = pr("%.p" , 111111); pr("| %d\n", r);
+	r = pr("%0.*p" , 0, 111111); pr("| %d\n", r);
+	r = pr("%0*c" , -6, 'Y'); pr("| %d\n", r);
+	r = pr("%0*i" , -6, 777); pr("| %d\n", r);
 	r = pr("%-0*i", a, i, a, i, a, i, a, i, a, i) ; pr("| %d\n", r);
-//	r = pr("%7", "254"); pr("| %d\n", r);
-//	r = pr("%p", "254"); pr("| %d\n", r);
+	r = pr("%7", "254"); pr("| %d\n", r);
+	r = pr("%p", "254"); pr("| %d\n", r);
 	r = pr("%X", 254); pr("| %d\n", r);
 	pr("Percent:\n%%%%%%\n");
 	pr("Char:\n%c%c%c\n", 'A', 'B', 'C');

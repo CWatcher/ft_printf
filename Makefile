@@ -5,7 +5,7 @@ DEF		= LIBFT
 NAME	= aa
 
 $(NAME)	: $(SRC) liba
-	cc -Wall -Wextra -Werror -I$(PROJ) -L$(PROJ) -D $(DEF) -o aa main.c -lftprintf
+	cc -Wall -Wextra -Werror -I$(PROJ) -L$(PROJ) -D $(DEF) -o aa main.c -lftprintf -g
 
 liba	: force
 
