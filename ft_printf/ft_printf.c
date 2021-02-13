@@ -6,7 +6,7 @@
 /*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 00:00:44 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/28 19:39:11 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/01/29 11:33:47 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static ssize_t	prn_frmt(t_frmt *pfrmt, char const **ps, va_list *pap)
 	if (!ps || !*ps || !**ps)
 		return (-1);
 	else if (**ps == '%')
-		n = ft_putc('%');
+		n = print_c(pfrmt, '%');
 	else if (**ps == 'c')
 		n = print_c(pfrmt, va_arg(*pap, int));
 	else if (**ps == 's')
@@ -59,7 +59,10 @@ int				ft_printf(const char *s, ...)
 			++s;
 			set_frmt(&frmt, &s, &ap);
 			if (0 > (r = prn_frmt(&frmt, &s, &ap)))
+			{
+				va_end(ap);
 				return (-1);
+			}
 			n += r;
 		}
 		else
