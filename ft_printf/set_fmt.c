@@ -6,23 +6,13 @@
 /*   By: CWatcher <CWatcher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 18:05:28 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/02/16 21:30:13 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/02/16 23:35:58 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include "ft_printf_utils.h"
 #include "libft.h"
-
-t_fmt	g_fmt0;
-
-static void	ini_frmt(t_fmt *pfmt)
-{
-	*pfmt = g_fmt0;
-	pfmt->prc = -1;
-	pfmt->pad = ' ';
-	pfmt->pfx = "";
-}
 
 static void	set_flgs(t_fmt *pfmt, char const **ps)
 {
@@ -83,7 +73,9 @@ static void	set_prec(t_fmt *pfmt, char const **ps, va_list *pap)
 
 void		set_fmt(t_fmt *pfrmt, char const **ps, va_list *pap)
 {
-	ini_frmt(pfrmt);
+	static const t_fmt	fmt0 = {.prc = -1, .pad = ' ', .pfx = ""};
+
+	*pfrmt = fmt0;
 	set_flgs(pfrmt, ps);
 	set_wdth(pfrmt, ps, pap);
 	set_prec(pfrmt, ps, pap);
