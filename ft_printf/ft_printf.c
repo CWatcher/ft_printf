@@ -15,7 +15,7 @@
 #include "libft.h"
 #include "ft_printf_utils.h"
 
-static ssize_t	prn_frmt(t_frmt *pfrmt, char const **ps, va_list *pap)
+static ssize_t	prn_frmt(t_fmt *pfrmt, char const **ps, va_list *pap)
 {
 	ssize_t	n;
 
@@ -29,7 +29,7 @@ static ssize_t	prn_frmt(t_frmt *pfrmt, char const **ps, va_list *pap)
 		n = print_s(pfrmt, va_arg(*pap, char *));
 	else if (ft_strchr("diuxXp", **ps))
 	{
-		set_frmt_integer(pfrmt, **ps);
+		set_fmt_integer(pfrmt, **ps);
 		if (**ps == 'p')
 			n = print_u_base(pfrmt, (size_t)va_arg(*pap, void *), **ps);
 		else if ((ft_strchr("di", **ps)))
@@ -48,16 +48,15 @@ int				ft_printf(const char *s, ...)
 	va_list	ap;
 	ssize_t	n;
 	ssize_t r;
-	t_frmt	frmt;
+	t_fmt	frmt;
 
 	n = 0;
 	va_start(ap, s);
 	while (*s)
-	{
 		if (*s == '%')
 		{
 			++s;
-			set_frmt(&frmt, &s, &ap);
+			set_fmt(&frmt, &s, &ap);
 			if (0 > (r = prn_frmt(&frmt, &s, &ap)))
 			{
 				va_end(ap);
@@ -67,7 +66,6 @@ int				ft_printf(const char *s, ...)
 		}
 		else
 			n += ft_putc(*s++);
-	}
 	va_end(ap);
 	return (n);
 }

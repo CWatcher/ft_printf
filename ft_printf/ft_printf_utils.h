@@ -18,18 +18,18 @@
 
 typedef struct	s_fmt
 {
-	ssize_t	wdth;
-	ssize_t	prec;
-	bool	left;
-	char	padd;
-	char	*prfx;
-}				t_frmt;
+	ssize_t	wdh;
+	ssize_t	prc;
+	bool	lft;
+	char	pad;
+	char	*pfx;
+}				t_fmt;
 
-void			set_frmt(t_frmt	*pfrmt, char const **ps, va_list *pap);
-void			set_frmt_integer(t_frmt *pfrmt, char c);
-ssize_t			print_c(t_frmt *pfrmt, int c);
-ssize_t			print_s(t_frmt *pfrmt, char *s);
-ssize_t			print_d(t_frmt *pfrmt, long long num);
-ssize_t			print_u_base(t_frmt *pfrmt, unsigned long long unum, char base);
+void			set_fmt(t_fmt	*pfmt, char const **ps, va_list *pap);
+void			set_fmt_integer(t_fmt *pfmt, char c);
+ssize_t			print_c(t_fmt *pfmt, int c);
+ssize_t			print_s(t_fmt *pfmt, char *s);
+ssize_t			print_d(t_fmt *pfmt, long long num);
+ssize_t			print_u_base(t_fmt *pfmt, unsigned long long unum, char base);
 
 #endif

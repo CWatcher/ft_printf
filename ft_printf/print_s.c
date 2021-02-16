@@ -14,7 +14,7 @@
 #include "libft.h"
 #include "ft_printf_utils.h"
 
-ssize_t	print_s(t_frmt *pfrmt, char *s)
+ssize_t	print_s(t_fmt *pfmt, char *s)
 {
 	ssize_t	n;
 	ssize_t	l;
@@ -23,12 +23,12 @@ ssize_t	print_s(t_frmt *pfrmt, char *s)
 		s = "(null)";
 	l = ft_strlen(s);
 	n = 0;
-	if (pfrmt->prec < 0 || pfrmt->prec > l)
-		pfrmt->prec = l;
-	if (!pfrmt->left)
-		n += ft_putcn(pfrmt->padd, pfrmt->wdth - pfrmt->prec);
-	n += ft_putsn(s, pfrmt->prec);
-	if (pfrmt->left)
-		n += ft_putcn(pfrmt->padd, pfrmt->wdth - pfrmt->prec);
+	if (pfmt->prc < 0 || pfmt->prc > l)
+		pfmt->prc = l;
+	if (!pfmt->lft)
+		n += ft_putcn(pfmt->pad, pfmt->wdh - pfmt->prc);
+	n += ft_putsn(s, pfmt->prc);
+	if (pfmt->lft)
+		n += ft_putcn(pfmt->pad, pfmt->wdh - pfmt->prc);
 	return (n);
 }

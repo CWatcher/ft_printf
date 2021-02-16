@@ -14,12 +14,12 @@
 #include "ft_printf_utils.h"
 #include "libft.h"
 
-void	set_frmt_integer(t_frmt *pfrmt, char c)
+void	set_fmt_integer(t_fmt *pfmt, char c)
 {
-	if (pfrmt->prec >= 0)
-		pfrmt->padd = ' ';
+	if (pfmt->prc >= 0)
+		pfmt->pad = ' ';
 	else
-		pfrmt->prec = 1;
+		pfmt->prc = 1;
 	if (c == 'p')
-		pfrmt->prfx = "0x";
+		pfmt->pfx = "0x";
 }

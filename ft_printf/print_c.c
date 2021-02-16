@@ -14,15 +14,15 @@
 #include "libft.h"
 #include "ft_printf_utils.h"
 
-ssize_t	print_c(t_frmt *pfrmt, int c)
+ssize_t	print_c(t_fmt *pfmt, int c)
 {
 	ssize_t	n;
 
 	n = 0;
-	if (!pfrmt->left)
-		n += ft_putcn(pfrmt->padd, pfrmt->wdth - sizeof(char));
+	if (!pfmt->lft)
+		n += ft_putcn(pfmt->pad, pfmt->wdh - sizeof(char));
 	n += ft_putc(c);
-	if (pfrmt->left)
-		n += ft_putcn(pfrmt->padd, pfrmt->wdth - sizeof(char));
+	if (pfmt->lft)
+		n += ft_putcn(pfmt->pad, pfmt->wdh - sizeof(char));
 	return (n);
 }
