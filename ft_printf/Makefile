@@ -3,19 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+         #
+#    By: CWatcher <CWatcher@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/28 18:13:06 by CWatcher          #+#    #+#              #
-#    Updated: 2021/01/28 18:13:09 by CWatcher         ###   ########.fr        #
+#    Updated: 2021/02/16 23:06:02 by CWatcher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC		= ft_printf.c			\
-		  set_frmt.c			\
-		  set_frmt_integer.c	\
-		  print_c.c				\
-		  print_s.c				\
-		  print_d.c				\
+SRC		= ft_printf.c		\
+		  set_fmt.c			\
+		  set_fmt_integer.c	\
+		  print_c.c			\
+		  print_s.c			\
+		  print_d.c			\
 		  print_u_base.c
 OBJ		= $(SRC:.c=.o)
 LIB		= ft
