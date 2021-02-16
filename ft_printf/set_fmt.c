@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_frmt.c                                         :+:      :+:    :+:   */
+/*   set_fmt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: CWatcher <CWatcher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 18:05:28 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/28 20:32:27 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/02/16 21:30:13 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,16 @@ static void	ini_frmt(t_fmt *pfmt)
 
 static void	set_flgs(t_fmt *pfmt, char const **ps)
 {
-	while (**ps)
-	{
+	while (*++*ps)
 		if (**ps == '-')
 		{
 			pfmt->lft = true;
 			pfmt->pad = ' ';
 		}
-		else if (**ps == '0')
-		{
-			if (!pfmt->lft)
-				pfmt->pad = '0';
-		}
+		else if (**ps == '0' && !pfmt->lft)
+			pfmt->pad = '0';
 		else
 			return ;
-		(*ps)++;
-	}
 }
 
 static void	set_wdth(t_fmt *pfmt, char const **ps, va_list *pap)

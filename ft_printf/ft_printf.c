@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: CWatcher <CWatcher@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 00:00:44 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/01/29 11:33:47 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/02/16 21:32:43 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int				ft_printf(const char *s, ...)
 	while (*s)
 		if (*s == '%')
 		{
-			++s;
 			set_fmt(&frmt, &s, &ap);
 			if (0 > (r = prn_frmt(&frmt, &s, &ap)))
 			{
