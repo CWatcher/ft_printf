@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_fmt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: CWatcher <CWatcher@student.42.fr>          +#+  +:+       +#+        */
+/*   By: CWatcher <cwatcher@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/28 18:05:28 by CWatcher          #+#    #+#             */
-/*   Updated: 2021/02/16 23:35:58 by CWatcher         ###   ########.fr       */
+/*   Updated: 2021/02/20 20:47:52 by CWatcher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "ft_printf_utils.h"
 #include "libft.h"
 
-static void	set_flgs(t_fmt *pfmt, char const **ps)
+static void	set_flg(t_fmt *pfmt, char const **ps)
 {
 	while (*++*ps)
 		if (**ps == '-')
@@ -28,7 +28,7 @@ static void	set_flgs(t_fmt *pfmt, char const **ps)
 			return ;
 }
 
-static void	set_wdth(t_fmt *pfmt, char const **ps, va_list *pap)
+static void	set_wdh(t_fmt *pfmt, char const **ps, va_list *pap)
 {
 	int	n;
 
@@ -52,7 +52,7 @@ static void	set_wdth(t_fmt *pfmt, char const **ps, va_list *pap)
 		}
 }
 
-static void	set_prec(t_fmt *pfmt, char const **ps, va_list *pap)
+static void	set_prc(t_fmt *pfmt, char const **ps, va_list *pap)
 {
 	if (**ps != '.')
 		return ;
@@ -71,12 +71,12 @@ static void	set_prec(t_fmt *pfmt, char const **ps, va_list *pap)
 		}
 }
 
-void		set_fmt(t_fmt *pfrmt, char const **ps, va_list *pap)
+void		set_fmt(t_fmt *pfmt, char const **ps, va_list *pap)
 {
 	static const t_fmt	fmt0 = {.prc = -1, .pad = ' ', .pfx = ""};
 
-	*pfrmt = fmt0;
-	set_flgs(pfrmt, ps);
-	set_wdth(pfrmt, ps, pap);
-	set_prec(pfrmt, ps, pap);
+	*pfmt = fmt0;
+	set_flg(pfmt, ps);
+	set_wdh(pfmt, ps, pap);
+	set_prc(pfmt, ps, pap);
 }
