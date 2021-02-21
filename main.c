@@ -13,7 +13,7 @@ int	 main(/*int ac, char *av[] */) {
 	#endif
 	int	r;
 	int a = 12; int i = 18;
-	r = pr("Remove the lib*.txt file and press any key" , 0); pr("| %d\n", r);
+	//r = pr("chmod - w the lib*.txt file and press any key" , 0); pr("| %d\n", r);
 	getchar();
 //	r = pr(NULL , 0); pr("| %d\n", r);
 	r = pr("%p" , 0); pr("| %d\n", r);
